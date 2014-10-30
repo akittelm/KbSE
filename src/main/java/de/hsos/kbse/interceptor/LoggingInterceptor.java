@@ -19,26 +19,26 @@ import javax.interceptor.InvocationContext;
 @Logable
 @Interceptor
 public class LoggingInterceptor implements Serializable {
-    
-    @Inject
-    LogService logger;
-    
-    @AroundInvoke
-    public Object log(InvocationContext context) throws Exception {
-        LogLevel logLevel;
-        final Method method = context.getMethod();
-        // check if annotation is on class or method
-        if((method.getAnnotation(Logable.class))!= null) {
-            logLevel = method.getAnnotation(Logable.class).value();
-        }
-        else              
-            logLevel = method.getDeclaringClass().getAnnotation(Logable.class).value();
 
-        // invoke LogService
-        logger.log(context.getClass().getCanonicalName(),logLevel,
-        method.toString());
-        
-        return context.proceed();
-    }
-    
+	@Inject
+	LogService logger;
+
+	@AroundInvoke
+	public Object log(InvocationContext context) throws Exception {
+		LogLevel logLevel;
+		final Method method = context.getMethod();
+		// check if annotation is on class or method
+		if ((method.getAnnotation(Logable.class)) != null) {
+			logLevel = method.getAnnotation(Logable.class).value();
+		} else {
+			logLevel = method.getDeclaringClass().getAnnotation(Logable.class).value();
+		}
+
+		// invoke LogService
+		logger.log(context.getClass().getCanonicalName(), logLevel,
+				method.toString());
+
+		return context.proceed();
+	}
+
 }

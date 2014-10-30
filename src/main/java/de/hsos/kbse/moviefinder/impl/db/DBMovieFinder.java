@@ -29,43 +29,43 @@ import javax.inject.Inject;
 @DB
 public class DBMovieFinder implements MovieFinder {
 
-    @Inject
-    MovieBuilder mb;
+	@Inject
+	MovieBuilder mb;
 
-    @Override
-    @Produces @DB
-    public List<Movie> findAllMovies() {
-        List<Movie> movies = new ArrayList<>();
+	@Override
+	@Produces
+	@DB
+	public List<Movie> findAllMovies() {
+		List<Movie> movies = new ArrayList<>();
 
-        Connection con = null;
-	String strUrl = "jdbc:derby:C:\\Users\\Alex\\.netbeans-derby\\Movies";
+		Connection con = null;
+		String strUrl = "jdbc:derby:C:\\Users\\Alex\\.netbeans-derby\\Movies";
 //        String strUrl = "jdbc:derby:Z:\\.Win7_Profile\\.netbeans-derby\\Movies";
-        Properties props = new Properties();
-        props.put("user", "test");
-        props.put("password", "test");
-        //Die System-Property derby.system.home wird gesetzt 
-        DBMovieFinder.setDBSystemDir();
-        try {
-            //Verwendet die vorhandene Connection
-            con = DriverManager.getConnection(strUrl, props);
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT DIRECTORS.FIRSTNAME, DIRECTORS.LASTNAME, MOVIES.MOVIENAME FROM DIRECTORS, MOVIES WHERE DIRECTORS.D_ID = MOVIES.D_ID");
-            while (rs.next()) {
-                movies.add(mb.newMovie(rs.getString(1) + " " + rs.getString(2), rs.getString(3)));
-            }
-            con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(DBMovieFinder.class.getName()).log(Level.SEVERE, null, ex);
-        }
+		Properties props = new Properties();
+		props.put("user", "test");
+		props.put("password", "test");
+		//Die System-Property derby.system.home wird gesetzt 
+		DBMovieFinder.setDBSystemDir();
+		try {
+			//Verwendet die vorhandene Connection
+			con = DriverManager.getConnection(strUrl, props);
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT DIRECTORS.FIRSTNAME, DIRECTORS.LASTNAME, MOVIES.MOVIENAME FROM DIRECTORS, MOVIES WHERE DIRECTORS.D_ID = MOVIES.D_ID");
+			while (rs.next()) {
+				movies.add(mb.newMovie(rs.getString(1) + " " + rs.getString(2), rs.getString(3)));
+			}
+			con.close();
+		} catch (SQLException ex) {
+			Logger.getLogger(DBMovieFinder.class.getName()).log(Level.SEVERE, null, ex);
+		}
 
-        return movies;
-    }
+		return movies;
+	}
 
-    private static void setDBSystemDir() {
-        String userHomeDir = System.getProperty("user.home", ".").replace("\\", "/");
-        String systemDir = userHomeDir + "/db";
-        // Setzen des Derby System Directories
-        System.setProperty("derby.system.home", systemDir);
-    }
+	private static void setDBSystemDir() {
+		String userHomeDir = System.getProperty("user.home", ".").replace("\\", "/");
+		String systemDir = userHomeDir + "/db";
+		// Setzen des Derby System Directories
+		System.setProperty("derby.system.home", systemDir);
+	}
 }
-

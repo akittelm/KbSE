@@ -12,5 +12,6 @@ import de.hsos.kbse.movie.impl.Movie;
  * @author Alex
  */
 public interface GetMovies {
-    public Movie[] moviesDirectedBy(String directorName);
+
+	public Movie[] moviesDirectedBy(String directorName);
 }

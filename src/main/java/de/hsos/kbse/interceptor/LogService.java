@@ -13,11 +13,12 @@ import java.util.logging.Logger;
  * @author Alex
  */
 public class LogService {
-   // Receives the class name decorated with @Log 
-   public void log(final String clazz, final LogLevel level, final String
- message) {
-      // Logger from package java.util.logging
-      Logger log = Logger.getLogger(clazz);
-      log.log(Level.parse(level.toString()), message);
-   }
+
+	// Receives the class name decorated with @Log 
+
+	public void log(final String clazz, final LogLevel level, final String message) {
+		// Logger from package java.util.logging
+		Logger log = Logger.getLogger(clazz);
+		log.log(Level.parse(level.toString()), message);
+	}
 }

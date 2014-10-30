@@ -13,5 +13,6 @@ import java.util.List;
  * @author Alex
  */
 public interface MovieFinder {
-    public List<Movie> findAllMovies();
+
+	public List<Movie> findAllMovies();
 }

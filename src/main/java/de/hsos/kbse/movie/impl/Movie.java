@@ -9,33 +9,33 @@ package de.hsos.kbse.movie.impl;
  *
  * @author Alex
  */
-public class Movie implements Comparable<Movie>{
-    String director;
-    String title;
-    
-    
-    public Movie(){}
+public class Movie implements Comparable<Movie> {
 
-    public String getDirector() {
-        return director;
-    }
+	String director;
+	String title;
 
-    public void setDirector(String director) {
-        this.director = director;
-    }
+	public Movie() {
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getDirector() {
+		return director;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setDirector(String director) {
+		this.director = director;
+	}
 
-    @Override
-    public int compareTo(Movie o) {
-        return this.title.compareTo(o.getTitle());
-    }
-    
-    
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	@Override
+	public int compareTo(Movie o) {
+		return this.title.compareTo(o.getTitle());
+	}
+
 }

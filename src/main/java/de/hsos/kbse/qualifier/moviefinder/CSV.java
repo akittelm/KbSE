@@ -5,7 +5,6 @@
  */
 package de.hsos.kbse.qualifier.moviefinder;
 
-import de.hsos.kbse.moviefinder.impl.csv.CSVMovieFinder;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.PARAMETER;
@@ -21,5 +20,6 @@ import javax.inject.Qualifier;
  */
 @Qualifier
 @Retention(RUNTIME)
-@Target({ METHOD,FIELD,PARAMETER, TYPE })
-public @interface CSV {}
+@Target({METHOD, FIELD, PARAMETER, TYPE})
+public @interface CSV {
+}

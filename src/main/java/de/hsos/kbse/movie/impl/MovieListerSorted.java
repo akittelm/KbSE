@@ -7,7 +7,6 @@ package de.hsos.kbse.movie.impl;
  */
 import de.hsos.kbse.interceptor.LogLevel;
 import de.hsos.kbse.interceptor.Logable;
-import de.hsos.kbse.movie.impl.Movie;
 import de.hsos.kbse.movie.inf.GetMovies;
 import java.util.Arrays;
 import javax.decorator.Decorator;
