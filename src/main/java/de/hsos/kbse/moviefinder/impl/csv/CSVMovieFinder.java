@@ -25,17 +25,20 @@ import javax.validation.constraints.NotNull;
  */
 @CSV
 public class CSVMovieFinder implements MovieFinder {
-        
-    @Inject @NotNull 
-    MovieBuilder mb;
-    
-//    private final String filename = "Z:\\.Win7_Profile\\Desktop\\KBSE\\AB5\\MovieListerWeld\\MovieListerWeld\\movies.txt";
-    private final String filename = "C:\\Users\\Alex\\Documents\\NetBeansProjects\\MovieListerWeb\\movies.txt";
 
-    @Override
-    @Produces @CSV 
-    public List<Movie> findAllMovies() {
-        List<Movie> movies = new ArrayList<>();
+	@Inject
+	@NotNull
+	MovieBuilder mb;
+
+//    private final String filename = "Z:\\.Win7_Profile\\Desktop\\KBSE\\AB5\\MovieListerWeld\\MovieListerWeld\\movies.txt";
+//    private final String filename = "C:\\Users\\Alex\\Documents\\NetBeansProjects\\MovieListerWeb\\movies.txt";
+	private final String filename = "D:\\Dropbox\\Studium\\NetBeans_projects\\KbSE\\movies.txt";
+
+	@Override
+	@Produces
+	@CSV
+	public List<Movie> findAllMovies() {
+		List<Movie> movies = new ArrayList<>();
 		FileReader fr;
 		BufferedReader br;
 		String line;
@@ -55,5 +58,5 @@ public class CSVMovieFinder implements MovieFinder {
 			System.out.println("IOException!");
 		}
 		return movies;
-    }
+	}
 }
