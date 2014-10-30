@@ -20,7 +20,13 @@
             <artifactId>weld-se</artifactId>
             <version>1.0.1-Final</version>
             <type>jar</type>
-        </dependency>-->        
+        </dependency>-->
+        <dependency>
+            <groupId>org.jboss.weld</groupId>
+            <artifactId>weld-se</artifactId>
+            <version>1.0.1-Final</version>
+            <type>jar</type>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
