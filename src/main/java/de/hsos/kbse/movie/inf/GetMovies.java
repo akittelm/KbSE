@@ -1,0 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package de.hsos.kbse.movie.inf;
+
+import de.hsos.kbse.movie.impl.Movie;
+
+/**
+ *
+ * @author Alex
+ */
+public interface GetMovies {
+    public Movie[] moviesDirectedBy(String directorName);
+}
