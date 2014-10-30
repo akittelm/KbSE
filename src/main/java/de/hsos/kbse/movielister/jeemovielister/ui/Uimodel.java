@@ -7,14 +7,14 @@ import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import static javax.swing.text.StyleConstants.Size;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Named
 @RequestScoped
 public class Uimodel implements Serializable {
     
-    @Size(min=3, max=100)
+    @Size(min=3, max=100) @Pattern(regexp="[\\p{Lower}\\p{Upper}]")
     private String director;
     @Inject
     MovieLister movieLister;

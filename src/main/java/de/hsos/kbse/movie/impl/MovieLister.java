@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -28,7 +29,7 @@ public class MovieLister implements GetMovies {
     List<Movie> movies;
     Movie[] output;
     
-    @Inject @CSV
+    @Inject @CSV @NotNull
     MovieFinder mf;
         
     public void start() {
