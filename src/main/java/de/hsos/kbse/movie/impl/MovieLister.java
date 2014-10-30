@@ -24,23 +24,24 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class MovieLister implements GetMovies {
-    
-    List<Movie> movies;
-    Movie[] output;
-    
-    @Inject @CSV
-    MovieFinder mf;
-        
-    public void start() {
-            String input;
-            System.out.println("Regisseur eingeben:\n");
-            input = readInput();
-            output = this.moviesDirectedBy(input);
-            output();
-        }
-    
-   public String readInput() {
-                BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+
+	List<Movie> movies;
+	Movie[] output;
+
+	@Inject
+	@CSV
+	MovieFinder mf;
+
+	public void start() {
+		String input;
+		System.out.println("Regisseur eingeben:\n");
+		input = readInput();
+		output = this.moviesDirectedBy(input);
+		output();
+	}
+
+	public String readInput() {
+		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 		String line = null;
 		try {
 			line = console.readLine();
@@ -49,11 +50,11 @@ public class MovieLister implements GetMovies {
 		}
 		return line;
 	}
-        
+
 	@Logable(LogLevel.INFO)
-        @Override
-        public Movie[] moviesDirectedBy(String directorName) {
-                movies = mf.findAllMovies();
+	@Override
+	public Movie[] moviesDirectedBy(String directorName) {
+		movies = mf.findAllMovies();
 		System.out.println("MovieLister.moviesDirectedBy()");
 		ArrayList<Movie> movieListDirector = new ArrayList<>();
 		for (Movie m : movies) {
@@ -61,24 +62,24 @@ public class MovieLister implements GetMovies {
 				movieListDirector.add(m);
 			}
 		}
-		                
-            return movieListDirector.toArray(new Movie[movieListDirector.size()]);
-	}
-    
-    @Logable(LogLevel.INFO)
-    public void output() {
-        for(Movie m : output) {
-                    System.out.println(m.getTitle());
-        }
-        
-    }    
 
-    public void setOutput(Movie[] output) {
-        this.output = output;
-    }
-        
-    public List<Movie> getMovies() {
-        return movies;
-    }
-        
+		return movieListDirector.toArray(new Movie[movieListDirector.size()]);
+	}
+
+	@Logable(LogLevel.INFO)
+	public void output() {
+		for (Movie m : output) {
+			System.out.println(m.getTitle());
+		}
+
+	}
+
+	public void setOutput(Movie[] output) {
+		this.output = output;
+	}
+
+	public List<Movie> getMovies() {
+		return movies;
+	}
+
 }

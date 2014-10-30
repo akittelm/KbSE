@@ -10,24 +10,24 @@ package de.hsos.kbse.movie.impl;
  * @author Alex
  */
 public class MovieBuilder {
-    
-    private MovieBuilder() {
-    }
-    
-    public static MovieBuilder getInstance() {
-        return MovieBuilderHolder.INSTANCE;
-    }
-    
-    private static class MovieBuilderHolder {
 
-        private static final MovieBuilder INSTANCE = new MovieBuilder();
-    }
-    
-    public Movie newMovie(String directorName, String title){
-        Movie m = new Movie();
-        m.setDirector(directorName);
-        m.setTitle(title);
-                
-        return m;
-    }
+	private MovieBuilder() {
+	}
+
+	public static MovieBuilder getInstance() {
+		return MovieBuilderHolder.INSTANCE;
+	}
+
+	private static class MovieBuilderHolder {
+
+		private static final MovieBuilder INSTANCE = new MovieBuilder();
+	}
+
+	public Movie newMovie(String directorName, String title) {
+		Movie m = new Movie();
+		m.setDirector(directorName);
+		m.setTitle(title);
+
+		return m;
+	}
 }

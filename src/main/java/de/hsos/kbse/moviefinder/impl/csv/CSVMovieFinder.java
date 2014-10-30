@@ -28,7 +28,7 @@ public class CSVMovieFinder implements MovieFinder {
     @Inject 
     MovieBuilder mb;
     
-    private final String filename = "Z:\\.Win7_Profile\\Desktop\\KBSE\\AB5\\MovieListerWeld\\MovieListerWeld\\movies.txt";
+    private final String filename = "D:\\Dropbox\\Studium\\NetBeans_projects\\KbSE\\movies.txt";
 
     @Override
     @Produces @CSV 
