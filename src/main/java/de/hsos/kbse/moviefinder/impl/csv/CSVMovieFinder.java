@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -25,10 +26,11 @@ import javax.inject.Inject;
 @CSV
 public class CSVMovieFinder implements MovieFinder {
         
-    @Inject 
+    @Inject @NotNull 
     MovieBuilder mb;
     
-    private final String filename = "D:\\Dropbox\\Studium\\NetBeans_projects\\KbSE\\movies.txt";
+//    private final String filename = "Z:\\.Win7_Profile\\Desktop\\KBSE\\AB5\\MovieListerWeld\\MovieListerWeld\\movies.txt";
+    private final String filename = "C:\\Users\\Alex\\Documents\\NetBeansProjects\\MovieListerWeb\\movies.txt";
 
     @Override
     @Produces @CSV 

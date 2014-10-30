@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -24,24 +25,23 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class MovieLister implements GetMovies {
-
-	List<Movie> movies;
-	Movie[] output;
-
-	@Inject
-	@CSV
-	MovieFinder mf;
-
-	public void start() {
-		String input;
-		System.out.println("Regisseur eingeben:\n");
-		input = readInput();
-		output = this.moviesDirectedBy(input);
-		output();
-	}
-
-	public String readInput() {
-		BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+    
+    List<Movie> movies;
+    Movie[] output;
+    
+    @Inject @CSV @NotNull
+    MovieFinder mf;
+        
+    public void start() {
+            String input;
+            System.out.println("Regisseur eingeben:\n");
+            input = readInput();
+            output = this.moviesDirectedBy(input);
+            output();
+        }
+    
+   public String readInput() {
+                BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 		String line = null;
 		try {
 			line = console.readLine();

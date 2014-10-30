@@ -6,17 +6,19 @@ import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Named
 @RequestScoped
 public class Uimodel implements Serializable {
+    
+    @Size(min=3, max=100) @Pattern(regexp="[\\p{Lower}\\p{Upper}]")
+    private String director;
+    @Inject
+    MovieLister movieLister;
+    Movie[] movies;
 
-	@Size(min = 3, max = 240)
-	private String director;
-	@Inject
-	MovieLister movieLister;
-	Movie[] movies;
 
 	public Uimodel() {
 	}
